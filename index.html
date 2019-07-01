@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Kotlin</title>
+
+	<meta name="description" content="Presentation about Kotlin programming language">
+	<meta name="author" content="Martin Tosovsky">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section data-background-image="https://i0.wp.com/softwareengineeringdaily.com/wp-content/uploads/2018/10/kotlin.jpg?zoom=2&resize=730%2C389" data-state="no-toc-progress" data-transition="fade">
+				<span style="position: absolute;right: 75%">
+					<h1>Kotlin</h1>
+					<h4>programming language</h4>
+				</span>
+				<span style="position: absolute;left: 65%">
+					<p>
+						<small><a href="https://github.com/to-da">by Martin Tošovský | <em>to-da</em></a></small>
+					</p>
+				</span>
+			</section>
+
+			<section data-background-image="https://i0.wp.com/softwareengineeringdaily.com/wp-content/uploads/2018/10/kotlin.jpg?zoom=2&resize=730%2C389" data-state="dimbg">
+				<section><h1> Why Kotlin ?<br> <small>Motivation</small></h1></section>
+				<section>
+					<h2>Created by JetBrains</h2>
+						<p class="fragment" data-fragment-index="1">For their internal purposes.<br><small> ... Java codebase, Scala compilation was too slow, Groovy too dynamic ... </small></p>
+						<p class="fragment" data-fragment-index="2">They work with various languages on daily basis. <br><small> ... should be able to design one ... </small></p>
+						<p class="fragment" data-fragment-index="3">Great IDE support and tooling. <br><small> ... IntellyJ IDEA ... </small></p>
+				</section>
+				<section>
+					<h2>Mature</h2>
+						<p class="fragment" data-fragment-index="1">Introduced in 2011. Version 1.3 now.</p>
+						<p class="fragment" data-fragment-index="2">No more breaking changes in API since 1.0 <br><small> ... 1.0 was released on February 2016 ... </small></p>
+						<p class="fragment" data-fragment-index="3">Defined <a href="https://kotlinlang.org/docs/reference/evolution/components-stability.html">process</a> for components stability.
+							<br><small> ... different evolution speed per component (Lang itself, stdlib, dokka etc.) ... </small></p>
+				</section>
+				<section>
+					<h2>Adopters</h2>
+						<p class="fragment" data-fragment-index="1">Server-side - Spring, Ratpack<small>*</small> ...</p>
+						<p class="fragment" data-fragment-index="2">Google Android <br><small> ... irrelevant for GoodData but important for language itself ... </small> </p>
+						<p class="fragment" data-fragment-index="3"><a href="https://pusher.com/state-of-kotlin">State of Kotlin</a></p>
+				</section>
+				<section>
+					<h2>Multiplatform</h2>
+                        <p class="fragment" data-fragment-index="0"><a href="https://kotlinlang.org/docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html">Kotlin-JS</a> JS interop. tool provides seamless JS <-> Kotlin calls, React support, ...</p>
+                    	<p class="fragment" data-fragment-index="1"><a href="https://kotlinlang.org/docs/tutorials/native/basic-kotlin-native-app.html">Kotlin-Native</a> (beta) - all major platforms supported including WebAssembly, iOS and Android</p>
+						<p class="fragment" data-fragment-index="2">Ktor - <a href="https://ktor.io/samples/fullstack-mpp.html">Example</a></p>
+						<p class="fragment" data-fragment-index="3">kotlinx.serialization <a href="https://github.com/Kotlin/kotlinx.serialization#quick-example">Example</a></p>
+				</section>
+				<section>
+				<h2>Key (killer) features</h2>
+					<p class="fragment" data-fragment-index="1">Compile time safety.</p>
+					<p class="fragment" data-fragment-index="2">Strong in DSLs. <br><small> ... you can easily make your own ... </small> </p>
+					<p class="fragment" data-fragment-index="3">Extension functions.</p>
+					<p class="fragment" data-fragment-index="4">C-like syntax, functional/imperative/object-oriented style/paradigm.</p>
+					<p class="fragment" data-fragment-index="5">Seamless integration with Java.</p>
+				</section>
+			</section>
+
+			<section data-background-image="https://i0.wp.com/softwareengineeringdaily.com/wp-content/uploads/2018/10/kotlin.jpg?zoom=2&resize=730%2C389" data-state="dimbg">
+				<section><h1> Kotlin Philosophy </h1></section>
+				<section>
+					<p style="font-family: monospace">
+							<i>"If to choose one word to describe Kotlin’s design, it would be <b style="color: aqua">pragmatism</b> ... type system that prevents bugs ... abstraction <b style="color: rgb(40, 185, 252)">mechanisms that facilitate code reuse</b> ... 
+							<b style="color: rgb(128, 100, 255)">interoperability</b> with existing code and infrastructure <b style="color: rgb(128, 100, 255)">is crucial</b> 
+							... elegance, though highly appreciated, is not the primary goal here, <b style="color: rgb(18, 252, 135)">the primary goal is being useful</b> 
+							... we are proud of our <b style="color: rgb(208, 255, 0)">tooling as well as the language</b>"</i>
+					</p>	
+				</section>
+				<section>
+					<h2>Pragmatic</h2>
+						<p class="fragment" data-fragment-index="1">Designed to solve real-world problems. <br><small> Based on industry experience - Tooling creators + years of usage early versions by adopters.</small></p>
+						<p class="fragment" data-fragment-index="2">Don't enforce any particular programming style or paradigm. <br><small> ... can be used just like Java (OOP/imperative) in the beginning ... </small></p>
+						<p class="fragment" data-fragment-index="3">Language features designed with tooling in mind. <br><small> ... IDE find more concise constructs, fix the problems etc ... </small></p>
+				</section>
+				<section>
+					<h2>Concise</h2>
+						<p class="fragment" data-fragment-index="1">“make you code smaller”<br><small> ... less code means fewer bugs :) ... </small> <br><small> ... developer spent (much) more time reading existing code then writing new one ... </small></p>
+						<img class="fragment fade-in-then-out" data-fragment-index="2" data-src="https://cdn-images-1.medium.com/max/2600/1*7e2RXi01fGB5gqxb5ZqzRA.gif" style="width: 800px;position: absolute; left: 50%; top: 15%; margin-left: -400px">
+						<p class="fragment" data-fragment-index="3">Code contains meaning. <br><small> ... less boilerplate (getters/setters/constructors etc.) ... </small></p>
+						<iframe class="fragment fade-in-then-out" data-fragment-index="4" src="https://pl.kotl.in/H1wreS9tE" style="width: 400px; height: 500px;position: absolute; left: 50%; top: 15%; margin-left: -200px"></iframe>
+						<p class="fragment" data-fragment-index="5">No “free” operator overloading. <br><small> ... you can always find what you want in documentation ... </small> <br><small> ... no cryptic punctuation sequences ( hello Scala :) ) ... </small></p>
+				</section>
+				<section>
+					<h2>Safe</h2>
+						<p class="fragment" data-fragment-index="1">Preventing <u>certain</u> kinds of errors.<br><small> ... more than Java ... </small></p>
+						<p class="fragment" data-fragment-index="2">NullPointerException<br><small> ... better ways to handle nullable data ... </small></p>
+						<p class="fragment" data-fragment-index="3">ClassCastException<br><small> ... better ways to handle casting ... </small></p>
+						<iframe class="fragment fade-in-then-out" data-fragment-index="4" src="https://pl.kotl.in/B10cOKqt4" style="width: 450px; height: 300px;position: absolute; left: 50%; top: 25%; margin-left: -200px"></iframe>
+						<iframe class="fragment fade-in-then-out" data-fragment-index="5" src="https://pl.kotl.in/ryZzO99YN" style="width: 250px; height: 200px;position: absolute; left: 50%; top: 25%; margin-left: -125px"></iframe>
+					</section>
+				<section>
+					<h2>Interoperable</h2>
+						<p class="fragment" data-fragment-index="1">You can call methods, extend classes, implement interfaces, apply Annotations to Kotlin classes.</p>
+						<p class="fragment" data-fragment-index="2">You can debug code between Kotlin and Java (mixed code-bases)</p>
+						<p class="fragment" data-fragment-index="3">Kotlin can be called from Java as well.  <br><small> ... classes and methods can be called like regular Java) </small></p>
+						<p class="fragment" data-fragment-index="4">Kotlin is using Java collection library <br><small> ... just extending it with Extension functions ... </small></p>
+				</section>
+			</section>
+
+			<section data-background-image="https://i0.wp.com/softwareengineeringdaily.com/wp-content/uploads/2018/10/kotlin.jpg?zoom=2&resize=730%2C389" data-state="dimbg">
+				<section><h1> Platform </h1></section>
+				<section>
+					<h2>Kotlin/Native</h2>
+						<p class="fragment" data-fragment-index="1">Compile code to native binaries - can run without VM.</p>
+						<p class="fragment" data-fragment-index="2">LLVM backend for Kotlin compiler + native standard Kotlin library.</p>
+						<p class="fragment" data-fragment-index="3">Kotlin multiplatform - sharing libraries between platforms.</p>
+				</section>
+				<section>
+					<h2>kotlinx.serialization</h2>
+					<p>Kotlin cross-platform / multi-format serialization</p>
+				</section>
+				<section>
+					<h2>Gradle DSL</h2>
+					<p>Compile time errors + autocomplete</p>
+					<img src="http://antonioleiva.com/wp-content/uploads/2017/11/kotlin-gradle-autocomplete.png" style="width: 500px; height: 250px;">
+				</section>
+				<section>
+					<h2>Coroutines</h2>
+					<p class="fragment" data-fragment-index="1"><b>suspend</b> keyword on fun(ction)</p>
+					<iframe class="fragment fade-in-then-out" data-fragment-index="2" src="https://pl.kotl.in/Ski7J9qtE" style="width: 400px; height: 700px;position: absolute; left: 50%; top: 15%; margin-left: -200px"></iframe>
+					<p class="fragment" data-fragment-index="3">Complex topic - yield, async/await, Deffered type, Channels, Pipelines ...</p>	
+				</section>
+				<section>
+					<h2>Scripting / Scratches / REPL</h2>
+				</section>
+			</section>
+
+			<section
+					data-background-image="https://i0.wp.com/softwareengineeringdaily.com/wp-content/uploads/2018/10/kotlin.jpg?zoom=2&resize=730%2C389"
+					data-state="dimbg">
+				<h1>References</h1>
+				<p class="fragment" data-fragment-index="1">
+					Kotlin <a href="https://play.kotlinlang.org/koans">Koans</a>
+				</p>
+				<p class="fragment" data-fragment-index="1">
+					Live <a href="https://play.kotlinlang.org/byExample/overview">Examples</a>
+				</p>
+				<p class="fragment" data-fragment-index="1">
+					Official <a href="https://kotlinlang.org/docs/reference/">documentation</a>
+				</p>
+				<p class="fragment" data-fragment-index="1">
+					Czech User Group <a href="https://twitter.com/kotlinczech?lang=en">twitter</a>
+				</p>
+				<p class="fragment" data-fragment-index="1">
+					State of Kotlin 2018 <a href="https://pusher.com/state-of-kotlin">analysis</a>
+				</p>
+			</section>
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			minScale: 0.2,
+			maxScale: 1.5,
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true },
+				// Zoom in and out with Alt+click
+				{ src: 'plugin/zoom-js/zoom.js', async: true }
+			]
+		});
+	</script>
+</body>
+
+</html>
